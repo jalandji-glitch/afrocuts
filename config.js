@@ -4,7 +4,7 @@
 // =====================================================================
 window.AFRO_CONFIG = {
 SUPABASE_URL: "https://siwddtbpukxovjrlugco.supabase.co",
-SUPABASE_ANON_KEY: "sb_publishable_L5mLkOzkh2nDRmx2GaSMEQ_18HPKsyw",,
+SUPABASE_ANON_KEY: "sb_publishable_L5mLkOzkh2nDRmx2GaSMEQ_18HPKsyw",
 
   APP_NAME: "AFROCUTS",
   CITY_DEFAULT: "Berlin",
