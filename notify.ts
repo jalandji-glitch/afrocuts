@@ -88,6 +88,14 @@ Deno.serve(async (req) => {
         );
       }
 
+      // ---------- Kunde: Buchungsbestätigung ----------
+      if (type === "INSERT" && record.status === "booked" && looksLikeEmail(record.customer_contact)){
+        await sendMail(record.customer_contact,
+          `Bestätigung: Dein Termin bei ${shop?.name || "AFROCUTS"}`,
+          `Hallo ${record.customer_name},\n\nDein Termin ist bestätigt!\n\nShop: ${shop?.name || "AFROCUTS"}\nService: ${record.service_name}\nDatum: ${record.date}\nUhrzeit: ${record.time} Uhr\n\nDein Buchungscode: ${record.code}\n\nDu findest alle Details unter „Meine Termine" in der App.\n\nDein AFROCUTS-Team`
+        );
+      }
+
       const statusChanged = type === "UPDATE" && old_record && old_record.status !== record.status;
 
       if (statusChanged && record.status === "cancelled_customer" && shop?.owner_email){
